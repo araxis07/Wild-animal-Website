@@ -170,7 +170,7 @@ function showSlider(type){
         setTimeout(() => {
             carouselDom.classList.remove('animating-next');
             carouselDom.classList.remove('animating-prev');
-        }, 700);
+        }, 1000);
     }, 10);
 
     if(type === 'next'){
