@@ -1,3 +1,127 @@
+// --- Language Translation Logic ---
+const translations = {
+    en: {
+        'nav-home': 'Home',
+        'nav-contacts': 'Contacts',
+        'nav-info': 'Info',
+        'carousel-author-1': 'Wild animals',
+        'carousel-title-1': 'Wild Content',
+        'carousel-topic-1': 'Introduction',
+        'carousel-des-1': 'Wild animals are creatures that live in natural habitats without human domestication. They include a diverse range of species, such as lions, eagles, elephants, and wolves. These animals rely on their instincts for survival, hunting for food, finding shelter, and avoiding predators in the wild.',
+        'carousel-btn-1': 'SEE MORE',
+        'carousel-author-2': 'Wild animals',
+        'carousel-title-2': 'Wild Content',
+        'carousel-topic-2': 'Wild Reindeer',
+        'carousel-des-2': 'Wild reindeer, also known as caribou in North America, are large herbivores native to Arctic and Subarctic regions. They are known for their impressive antlers, which both males and females possess. Reindeer migrate over vast distances, traveling in herds, and primarily feed on lichens, grasses, and shrubs.',
+        'carousel-btn-2': 'SEE MORE',
+        'carousel-author-3': 'Wild animals',
+        'carousel-title-3': 'Wild Content',
+        'carousel-topic-3': 'Wild Elephants',
+        'carousel-des-3': 'Wild elephants are majestic, large mammals found in Africa and Asia. Known for their intelligence and strong social bonds, they live in herds led by matriarchs. Elephants have distinctive trunks used for feeding, drinking, and communication. They primarily eat vegetation and play a crucial role in their ecosystems.',
+        'carousel-btn-3': 'SEE MORE',
+        'carousel-author-4': 'Wild animals',
+        'carousel-title-4': 'Wild Content',
+        'carousel-topic-4': 'Wild Tiger',
+        'carousel-des-4': 'Wild tigers are powerful, solitary predators native to Asia. They have striking orange coats with black stripes and are skilled hunters, preying on deer, wild boar, and other animals. Tigers are territorial and primarily nocturnal, relying on stealth and strength. They play a crucial role in maintaining ecological balance.',
+        'carousel-btn-4': 'SEE MORE',
+        'thumb-title-1': 'Introduction',
+        'thumb-desc-1': 'Description',
+        'thumb-title-2': 'Reindeer',
+        'thumb-desc-2': 'Description',
+        'thumb-title-3': 'Wild Elephants',
+        'thumb-desc-3': 'Description',
+        'thumb-title-4': 'Wild Tiger',
+        'thumb-desc-4': 'Description',
+    },
+    th: {
+        'nav-home': 'หน้าหลัก',
+        'nav-contacts': 'ติดต่อ',
+        'nav-info': 'ข้อมูล',
+        'carousel-author-1': 'สัตว์ป่า',
+        'carousel-title-1': 'เนื้อหาสัตว์ป่า',
+        'carousel-topic-1': 'บทนำ',
+        'carousel-des-1': 'สัตว์ป่าคือสิ่งมีชีวิตที่อาศัยอยู่ในถิ่นที่อยู่อาศัยตามธรรมชาติโดยไม่มีการเลี้ยงดูโดยมนุษย์ ประกอบด้วยสัตว์หลากหลายชนิด เช่น สิงโต นกอินทรี ช้าง และหมาป่า สัตว์เหล่านี้อาศัยสัญชาตญาณเพื่อความอยู่รอด ล่าสัตว์ หาอาหาร หาที่พัก และหลีกเลี่ยงผู้ล่าในธรรมชาติ',
+        'carousel-btn-1': 'ดูเพิ่มเติม',
+        'carousel-author-2': 'สัตว์ป่า',
+        'carousel-title-2': 'เนื้อหาสัตว์ป่า',
+        'carousel-topic-2': 'กวางเรนเดียร์ป่า',
+        'carousel-des-2': 'กวางเรนเดียร์ป่า หรือที่รู้จักในอเมริกาเหนือว่าแคริบู เป็นสัตว์กินพืชขนาดใหญ่ที่อาศัยอยู่ในเขตอาร์กติกและซับอาร์กติก มีเขากวางที่น่าประทับใจทั้งตัวผู้และตัวเมีย เรนเดียร์อพยพเป็นระยะทางไกล เดินทางเป็นฝูง และกินไลเคน หญ้า และพุ่มไม้เป็นหลัก',
+        'carousel-btn-2': 'ดูเพิ่มเติม',
+        'carousel-author-3': 'สัตว์ป่า',
+        'carousel-title-3': 'เนื้อหาสัตว์ป่า',
+        'carousel-topic-3': 'ช้างป่า',
+        'carousel-des-3': 'ช้างป่าเป็นสัตว์เลี้ยงลูกด้วยนมขนาดใหญ่ที่สง่างาม พบในแอฟริกาและเอเชีย มีความฉลาดและมีสายสัมพันธ์ทางสังคมที่แน่นแฟ้น อาศัยอยู่เป็นฝูงนำโดยตัวเมีย ช้างมีงวงที่โดดเด่นใช้ในการกินอาหาร ดื่มน้ำ และสื่อสาร กินพืชเป็นหลักและมีบทบาทสำคัญในระบบนิเวศ',
+        'carousel-btn-3': 'ดูเพิ่มเติม',
+        'carousel-author-4': 'สัตว์ป่า',
+        'carousel-title-4': 'เนื้อหาสัตว์ป่า',
+        'carousel-topic-4': 'เสือป่า',
+        'carousel-des-4': 'เสือป่าเป็นนักล่าที่ทรงพลังและอยู่ตัวเดียวโดยกำเนิด พบในเอเชีย มีขนสีส้มลายดำที่โดดเด่น เป็นนักล่าที่ชำนาญ ล่าเนื้อ กวางป่า และสัตว์อื่น ๆ เสือมีอาณาเขตและออกหากินเวลากลางคืนเป็นหลัก ใช้ความลับและพละกำลัง มีบทบาทสำคัญในการรักษาสมดุลของระบบนิเวศ',
+        'carousel-btn-4': 'ดูเพิ่มเติม',
+        'thumb-title-1': 'บทนำ',
+        'thumb-desc-1': 'คำอธิบาย',
+        'thumb-title-2': 'กวางเรนเดียร์',
+        'thumb-desc-2': 'คำอธิบาย',
+        'thumb-title-3': 'ช้างป่า',
+        'thumb-desc-3': 'คำอธิบาย',
+        'thumb-title-4': 'เสือป่า',
+        'thumb-desc-4': 'คำอธิบาย',
+    },
+    ja: {
+        'nav-home': 'ホーム',
+        'nav-contacts': '連絡先',
+        'nav-info': '情報',
+        'carousel-author-1': '野生動物',
+        'carousel-title-1': '野生の内容',
+        'carousel-topic-1': '紹介',
+        'carousel-des-1': '野生動物は人間に飼いならされていない自然の生息地に住む生き物です。ライオン、ワシ、ゾウ、オオカミなど多様な種が含まれます。これらの動物は本能に頼って生き延び、食料を探し、住処を見つけ、捕食者から身を守ります。',
+        'carousel-btn-1': 'もっと見る',
+        'carousel-author-2': '野生動物',
+        'carousel-title-2': '野生の内容',
+        'carousel-topic-2': '野生のトナカイ',
+        'carousel-des-2': '野生のトナカイ（北米ではカリブーとも呼ばれる）は、北極圏と亜北極圏に生息する大型の草食動物です。オスもメスも立派な角を持ちます。トナカイは長距離を移動し、群れで生活し、主に地衣類、草、低木を食べます。',
+        'carousel-btn-2': 'もっと見る',
+        'carousel-author-3': '野生動物',
+        'carousel-title-3': '野生の内容',
+        'carousel-topic-3': '野生のゾウ',
+        'carousel-des-3': '野生のゾウはアフリカとアジアに生息する壮大な大型哺乳類です。知性と強い社会的絆で知られ、母系の群れで生活します。ゾウは特徴的な鼻を使って食事や水を取り、コミュニケーションします。主に植物を食べ、生態系で重要な役割を果たします。',
+        'carousel-btn-3': 'もっと見る',
+        'carousel-author-4': '野生動物',
+        'carousel-title-4': '野生の内容',
+        'carousel-topic-4': '野生のトラ',
+        'carousel-des-4': '野生のトラはアジア原産の力強い単独性の捕食者です。鮮やかなオレンジ色の毛皮に黒い縞模様があり、巧みなハンターで、シカやイノシシなどを狩ります。トラは縄張り意識が強く、主に夜行性で、隠密性と力を頼りにします。生態系のバランス維持に重要な役割を果たします。',
+        'carousel-btn-4': 'もっと見る',
+        'thumb-title-1': '紹介',
+        'thumb-desc-1': '説明',
+        'thumb-title-2': 'トナカイ',
+        'thumb-desc-2': '説明',
+        'thumb-title-3': '野生のゾウ',
+        'thumb-desc-3': '説明',
+        'thumb-title-4': '野生のトラ',
+        'thumb-desc-4': '説明',
+    }
+};
+
+function setLanguage(lang) {
+    const dict = translations[lang] || translations['en'];
+    Object.keys(dict).forEach(id => {
+        const el = document.getElementById(id);
+        if (el) {
+            el.textContent = dict[id];
+        }
+    });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    const select = document.getElementById('language-select');
+    if (select) {
+        select.addEventListener('change', function() {
+            setLanguage(this.value);
+        });
+        // Set default language
+        setLanguage(select.value);
+    }
+});
+// --- End Language Translation Logic ---
 //step 1: get DOM
 let nextDom = document.getElementById('next');
 let prevDom = document.getElementById('prev');
