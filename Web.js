@@ -150,14 +150,32 @@ let runNextAuto = setTimeout(() => {
 function showSlider(type){
     let  SliderItemsDom = SliderDom.querySelectorAll('.carousel .list .item');
     let thumbnailItemsDom = document.querySelectorAll('.carousel .thumbnail .item');
-    
+
+    // Animation: add animating class
     if(type === 'next'){
-        SliderDom.appendChild(SliderItemsDom[0]);
-        thumbnailBorderDom.appendChild(thumbnailItemsDom[0]);
+        carouselDom.classList.add('animating-next');
+    } else {
+        carouselDom.classList.add('animating-prev');
+    }
+
+    setTimeout(() => {
+        if(type === 'next'){
+            SliderDom.appendChild(SliderItemsDom[0]);
+            thumbnailBorderDom.appendChild(thumbnailItemsDom[0]);
+        }else{
+            SliderDom.prepend(SliderItemsDom[SliderItemsDom.length - 1]);
+            thumbnailBorderDom.prepend(thumbnailItemsDom[thumbnailItemsDom.length - 1]);
+        }
+        // Remove animating class after animation
+        setTimeout(() => {
+            carouselDom.classList.remove('animating-next');
+            carouselDom.classList.remove('animating-prev');
+        }, 700);
+    }, 10);
+
+    if(type === 'next'){
         carouselDom.classList.add('next');
     }else{
-        SliderDom.prepend(SliderItemsDom[SliderItemsDom.length - 1]);
-        thumbnailBorderDom.prepend(thumbnailItemsDom[thumbnailItemsDom.length - 1]);
         carouselDom.classList.add('prev');
     }
     clearTimeout(runTimeOut);

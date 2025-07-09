@@ -207,6 +207,38 @@ header a:hover {
     background-color: #fff;
     color: #000;
 }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateX(40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes fadeOut {
+  from { opacity: 1; transform: translateX(0); }
+  to { opacity: 0; transform: translateX(-40px); }
+}
+@keyframes fadeInPrev {
+  from { opacity: 0; transform: translateX(-40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes fadeOutPrev {
+  from { opacity: 1; transform: translateX(0); }
+  to { opacity: 0; transform: translateX(40px); }
+}
+.carousel.animating-next .list .item:nth-child(1) .content,
+.carousel.animating-next .list .item:nth-child(1) img {
+  animation: fadeIn 0.7s cubic-bezier(.77,0,.18,1) both;
+}
+.carousel.animating-next .list .item:last-child .content,
+.carousel.animating-next .list .item:last-child img {
+  animation: fadeOut 0.7s cubic-bezier(.77,0,.18,1) both;
+}
+.carousel.animating-prev .list .item:nth-child(1) .content,
+.carousel.animating-prev .list .item:nth-child(1) img {
+  animation: fadeInPrev 0.7s cubic-bezier(.77,0,.18,1) both;
+}
+.carousel.animating-prev .list .item:last-child .content,
+.carousel.animating-prev .list .item:last-child img {
+  animation: fadeOutPrev 0.7s cubic-bezier(.77,0,.18,1) both;
+}
 @media screen and (max-width: 900px) {
     .carousel .list .item .content {
         width: 98vw;
